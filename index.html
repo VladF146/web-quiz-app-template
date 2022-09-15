@@ -22,17 +22,26 @@
               In the Kingdom Heart series who provides the english voice for
               Master Eraqus?
             </h2>
-            <button class="card__button-answer" type="button">
+            <button
+              class="card__button-answer"
+              type="button"
+              data-js="answer-button"
+            >
               Show answer
             </button>
-            <p class="card__answer">Mark Hamill</p>
+            <p class="card__answer" data-js="answer">Mark Hamill</p>
             <ul class="card__tag-list">
               <li class="card__tag-list-item">#kingdomheart</li>
               <li class="card__tag-list-item">#mastereraqus</li>
               <li class="card__tag-list-item">#english voices</li>
             </ul>
             <div class="card__button-bookmark">
-              <button class="bookmark" aria-label="bookmark" type="button">
+              <button
+                class="bookmark"
+                aria-label="bookmark"
+                type="button"
+                data-js="bookmark-button"
+              >
                 <svg
                   class="bookmark__icon"
                   xmlns="http://www.w3.org/2000/svg"
@@ -160,6 +169,22 @@
         <li class="navigation__list-item">
           <a
             class="navigation__link"
+            href="/add.html"
+            aria-label="go to add page"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24px"
+              viewbox="0 0 24 24"
+              width="24px"
+            >
+              <path d="M11 11v-11h1v11h11v1h-11v11h-1v-11h-11v-1h11z" />
+            </svg>
+          </a>
+        </li>
+        <li class="navigation__list-item">
+          <a
+            class="navigation__link"
             href="/profile.html"
             aria-label="go to profile page"
           >
@@ -177,5 +202,24 @@
         </li>
       </ul>
     </nav>
+    <script>
+      // Bookmark Button Solution
+      const bookmarkButton = document.querySelector(
+        '[data-js="bookmark-button"]'
+      );
+      bookmarkButton.addEventListener("click", (event) => {
+        event.target.classList.toggle("bookmark--active");
+      });
+
+      // Show Answer Button Solution
+      const answer = document.querySelector('[data-js="answer"]');
+      const solutionButton = document.querySelector(
+        '[data-js="answer-button"]'
+      );
+
+      solutionButton.addEventListener("click", () => {
+        answer.classList.toggle("card__answer--active");
+      });
+    </script>
   </body>
 </html>
