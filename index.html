@@ -203,7 +203,7 @@
       </ul>
     </nav>
     <script>
-      // Bookmark Button Solution
+      // Bookmark-Button Solution
       const bookmarkButton = document.querySelector(
         '[data-js="bookmark-button"]'
       );
@@ -211,7 +211,9 @@
         event.target.classList.toggle("bookmark--active");
       });
 
-      // Show Answer Button Solution
+      let answerHidden = true;
+
+      // Show-Answer-Button Solution
       const answer = document.querySelector('[data-js="answer"]');
       const solutionButton = document.querySelector(
         '[data-js="answer-button"]'
@@ -219,6 +221,8 @@
 
       solutionButton.addEventListener("click", () => {
         answer.classList.toggle("card__answer--active");
+        event.target.textContent = answerHidden ? "Hide answer" : "Show answer";
+        answerHidden = !answerHidden;
       });
     </script>
   </body>
